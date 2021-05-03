@@ -1,0 +1,9 @@
+avg_day <- aggregate(activity$steps, by = list(Interval = activity$interval), FUN = "mean")
+plot(avg_day$Interval, avg_day$x, type = "l", 
+     main = "Average daily activity pattern", 
+     ylab = "Average number of steps taken", 
+     xlab = "5-min intervals")
+
+interval <- which.max(avg_day$x)
+max_steps_interval <- avg_day[interval,1]
+print (max_steps_interval)
