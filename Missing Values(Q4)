@@ -1,0 +1,17 @@
+library(Hmisc)
+NA <- length(which(is.na(raw_data$steps)))
+print (NA_number)
+
+raw_data<-raws 
+raw_data$steps <- impute(raws$steps, fun=mean)
+steps_NA <- aggregate(raw_data$steps, by = list(Steps.Date = raw_data$date), FUN = "sum")
+hist(steps_NA$x, col = "green", 
+     breaks = 20,
+     main = "Total number of steps taken each day (filled data)",
+     xlab = "Number of steps per day")
+
+steps_mean_NA <- mean(steps_NA[,2])
+print (steps_mean_NA)
+
+steps_med_NA <- median(steps_NA[,2])
+print (steps_med_NA)
