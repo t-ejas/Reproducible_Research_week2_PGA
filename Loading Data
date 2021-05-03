@@ -1,0 +1,2 @@
+raws <- read.csv("activity.csv", header = TRUE)
+activity <- na.omit(raws)
